@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('frontend.index');
+});
+
+
+Route::controller(SupplierController::class)->group(function () {
+    Route::get('/supplier/all', 'SupplierAll')->name('supplier.all');
+    Route::post('/supplier/create', 'SupplierCreate')->name('supplier.create');
+    Route::get('/supplier/add', 'SupplierAdd')->name('supplier.add');
+    Route::get('/supplier/edit/{id}', 'SupplierEdit')->name('supplier.edit');
+    Route::post('/supplier/update/{id}', 'SupplierUpdate')->name('supplier.update');
+    Route::get('/supplier/destroy/{id}', 'SupplierDestroy')->name('supplier.destroy');
+
 });
 
 Route::controller(HomeSliderController::class)->group(function () {
