@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\ProfileController;
@@ -30,6 +31,16 @@ Route::controller(SupplierController::class)->group(function () {
     Route::get('/supplier/edit/{id}', 'SupplierEdit')->name('supplier.edit');
     Route::post('/supplier/update/{id}', 'SupplierUpdate')->name('supplier.update');
     Route::get('/supplier/destroy/{id}', 'SupplierDestroy')->name('supplier.destroy');
+
+});
+
+Route::controller(CustomerController::class)->group(function () {
+    Route::get('/customer/all', 'CustomerAll')->name('customer.all');
+    Route::get('/customer/add', 'CustomerAdd')->name('customer.add');
+    Route::post('/customer/store', 'CustomerStore')->name('customer.store');
+    Route::get('/customer/edit/{id}', 'CustomerEdit')->name('customer.edit');
+    Route::post('/customer/update/{id}', 'CustomerUpdate')->name('customer.update');
+    Route::get('/customer/destroy/{id}', 'CustomerDestroy')->name('customer.destroy');
 
 });
 
