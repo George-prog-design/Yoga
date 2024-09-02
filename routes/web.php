@@ -6,6 +6,7 @@ use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,16 @@ Route::controller(CustomerController::class)->group(function () {
     Route::get('/customer/edit/{id}', 'CustomerEdit')->name('customer.edit');
     Route::post('/customer/update/{id}', 'CustomerUpdate')->name('customer.update');
     Route::get('/customer/destroy/{id}', 'CustomerDestroy')->name('customer.destroy');
+
+});
+
+Route::controller(UnitController::class)->group(function () {
+    Route::get('/unit/all', 'UnitAll')->name('unit.all');
+    Route::get('/unit/add', 'UnitAdd')->name('unit.add');
+    Route::post('/unit/store', 'UnitStore')->name('unit.store');
+    Route::get('/unit/edit/{id}', 'UnitEdit')->name('unit.edit');
+    Route::post('/unit/update/{id}', 'UnitUpdate')->name('unit.update');
+    Route::get('/unit/destroy/{id}', 'UnitDestroy')->name('unit.destroy');
 
 });
 
