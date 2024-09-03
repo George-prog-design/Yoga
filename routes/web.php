@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\HomeSliderController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UnitController;
@@ -54,6 +55,15 @@ Route::controller(UnitController::class)->group(function () {
     Route::post('/unit/update/{id}', 'UnitUpdate')->name('unit.update');
     Route::get('/unit/destroy/{id}', 'UnitDestroy')->name('unit.destroy');
 
+});
+
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/product/all', 'ProductAll')->name('product.all');
+    Route::get('/product/add', 'ProductAdd')->name('product.add');
+    Route::post('/product/store', 'Store')->name('product.store');
+    Route::get('/product/edit/{id}', 'ProductEdit')->name('product.edit');
+    Route::post('/product/update', 'ProductUpdate')->name('product.update');
+    Route::get('/product/destroy/{id}', 'Destroy')->name('product.destroy');
 });
 
 Route::controller(CategoryController::class)->group(function () {
