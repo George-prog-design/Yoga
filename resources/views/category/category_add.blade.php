@@ -52,7 +52,7 @@
             },
             messages :{
                 name: {
-                    required : 'Please Enter Your Name',
+                    required : 'Please Enter A Category Name',
                 },
 
             },
@@ -74,4 +74,4 @@
 
 
 
-@endsection 
+@endsection
