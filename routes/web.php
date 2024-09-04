@@ -7,6 +7,7 @@ use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
@@ -104,6 +105,13 @@ Route::controller(AdminController::class)->group(function () {
 
 }
 );
+
+Route::controller(PurchaseController::class)->group(function () {
+    Route::get('/purchase/all', 'index')->name('purchase.all');
+    Route::get('/product/add', 'ProductAdd')->name('product.add');
+
+
+});
 
 
 
